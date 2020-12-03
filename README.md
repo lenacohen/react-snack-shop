@@ -3,14 +3,14 @@ For this assignment, I used React.js to create a snack list interface with live 
 
 # Components
 The app is made of the following components: 
-App.jsx - contains the product list and passes it to FilteredList component
-FilteredList.jsx - contains filtering/sorting/aggregator methods
-DisplayList.jsx - maps each snack item from the FilteredList to a ListItem Component for render
-DisplayCart.jsx - maps each item in the cart from the FilteredList into an HTML list item element for render a list of items in the cart (cart) 
-ListItem.jsx - renders the product information and Add To Cart button for one item
+* App.js - contains the product list and passes it to FilteredList component
+* FilteredList.jsx - contains filtering/sorting/aggregator methods
+* DisplayList.jsx - maps each snack item from the FilteredList to a ListItem Component for render
+* DisplayCart.jsx - maps each item in the cart from the FilteredList into an HTML list item element for render a list of items in the cart (cart) 
+* ListItem.jsx - renders the product information and Add To Cart button for one item
 
 # Component Interaction
-App.jsx contains the list of snacks as an array of objects of {key:value} pairs. Each key: value pair is a property of the snack, such as taste or price. I manually input the list of snacks. Inside the return function in the App() function, I created an instance of the FilteredList component that takes in the productList. After passing the productList to the FilteredList component as a prop, I could refer to the productList as this.props.list in FilteredList. FilteredList contains methods to filter by taste, filter by size, sort by price, add an item to the cart, and remove an item from the cart. I used state to keep track of the price sorting style, unique id of the next cart item, size selected, and taste selected. Inside the render function of FilteredList, I create three navbars that allow the user to filter by two categories and sort by one. I create a DisplayList component and pass in the filtered and sorted productList, as well as the addToCart function as props. I then create a DisplayCart component and pass in the cart and removeFromCart function as props. In the render method of DisplayList, I mapp each product in the product list to a ListItem component with the item and addToCart function passed in as props.
+App.js contains the list of snacks as an array of objects of {key:value} pairs. Each key: value pair is a property of the snack, such as taste or price. I manually input the list of snacks. Inside the return function in the App() function, I created an instance of the FilteredList component that takes in the productList. After passing the productList to the FilteredList component as a prop, I could refer to the productList as this.props.list in FilteredList. FilteredList contains methods to filter by taste, filter by size, sort by price, add an item to the cart, and remove an item from the cart. I used state to keep track of the price sorting style, unique id of the next cart item, size selected, and taste selected. Inside the render function of FilteredList, I create three navbars that allow the user to filter by two categories and sort by one. I create a DisplayList component and pass in the filtered and sorted productList, as well as the addToCart function as props. I then create a DisplayCart component and pass in the cart and removeFromCart function as props. In the render method of DisplayList, I mapp each product in the product list to a ListItem component with the item and addToCart function passed in as props.
 
 
 # User Interaction

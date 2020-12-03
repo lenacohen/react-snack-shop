@@ -1,8 +1,3 @@
-Your README should  detail your application’s architecture: 
-Organization of your components
-How data is passed down through your components
-How user interactions can trigger changes in the state of components
-
 # React.js Snack Shop
 For this assignment, I used React.js to create a snack list interface with live filtering and sorting functionality. 
 
@@ -11,34 +6,12 @@ The app is made of the following components:
 App.jsx - contains the product list and passes it to FilteredList component
 FilteredList.jsx - contains filtering/sorting/aggregator methods
 DisplayList.jsx - maps each snack item from the FilteredList to a ListItem Component for render
-DisplayCart.jsx - maps each item in the cart from the FilteredList into an HTML list item element for render 
-a list of items in the cart (cart) 
+DisplayCart.jsx - maps each item in the cart from the FilteredList into an HTML list item element for render a list of items in the cart (cart) 
 ListItem.jsx - renders the product information and Add To Cart button for one item
 
 # Component Interaction
+App.jsx contains the list of snacks as an array of objects of {key:value} pairs. Each key: value pair is a property of the snack, such as taste or price. I manually input the list of snacks. Inside the return function in the App() function, I created an instance of the FilteredList component that takes in the productList. After passing the productList to the FilteredList component as a prop, I could refer to the productList as this.props.list in FilteredList. FilteredList contains methods to filter by taste, filter by size, sort by price, add an item to the cart, and remove an item from the cart. I used state to keep track of the price sorting style, unique id of the next cart item, size selected, and taste selected. Inside the render function of FilteredList, I create three navbars that allow the user to filter by two categories and sort by one. I create a DisplayList component and pass in the filtered and sorted productList, as well as the addToCart function as props. I then create a DisplayCart component and pass in the cart and removeFromCart function as props. In the render method of DisplayList, I mapp each product in the product list to a ListItem component with the item and addToCart function passed in as props.
+
 
 # User Interaction
-The user triggers changes
-
-App.jsx
-This class contains your list of products as an array of objects of {key:value} pairs. Each key: value pair is a property of the item, such as name. 
-You can fetch data from an API like we did in the JavaScript lab
-Or you can manually input a list of products. 
-Inside the return function in the App() function, you will create an instance of the FilteredList component that takes in your productList. Here, you are passing the productList to the FilteredList component as a prop.
-In FilteredList, you will be referring to the productList as this.props.list!
-
-
-FilteredList.js - contains filtering/sorting/aggregator methods
-This component contains all of the web app’s major functionalities. This include filtering, sorting, and addTo/removeFrom aggregator. 
-We will be keeping track of the selected size as a state. A state is a variable which is remembered when the component re-renders.
-The state will later change dynamically depending on the filter selected!
-We want the user to be able to select the size they want. Our example uses React Bootstrap’s Navbar component,
-An item/option in the Nav will look like below. When the user selects this option, onSelectFilterSize() will be called and the eventKey will be passed to the function.
-State changes will occur when a new filter type is selected. Therefore, we will set the size state according to the selected event. 
-The eventKey from HTML buttons correlates to the event the size state is set to.  
-We have to create a condition where only the items that match the filter type is returned. We do that by checking if the item’s size property matches the size state. 
-Now, let’s use the built-in filter() function to filter our productList. We want this to be in a separate section that allows us to map each item to a certain HTML style for render. First, below our HTML buttons in the render() function: 
-This displays the items beneath the buttons. We pass the productList we received as a prop to DisplayList as a prop again and filter that list with our predefined condition so it knows what items to display. Inside DisplayList, we will deal with rendering the details of each item!
-
-DisplayList.js - maps each product from App.js to an HTML element or Component for render
-We want to efficiently render each item as its own HTML element displaying the item’s name and size. The map() function maps the items in the list to anything you want, such an HTML element (a list item for example!)
+The user triggers changes in the state of components by clicking any buttons on the navbars, clicking any add to cart button, or clicking a remove from cart button. The navbar buttons change the taste, size, or priceStart state in FilteredList. When the user selects a navbar option, onSelectFilterSize(), onSelectFilterTaste(), or onSelectSortPrice will be called and the value of the option will be passed as an eventKey to the function. These functions trigger state changes, and the eventKey from the NavBar buttons correlates to the event the size, taste, or priceSort state is set to.  When the user clicks the add to cart button or the remove from cart button, an onClick function is triggered. In ListItem, the onClick function for a snack card is addToCart from FilteredList (passed into the component as cartFun) with the item passed into the component as the function argument. This addToCart function changes the state in FilteredList by adding a copy of the item with a unique id to the cart state and incrementing the id state. In DisplayCart, the onClick function for the button listed under each cart item is removeFromCart from FilteredList (passed into the component as removeFun) with the cart item being mapped to a list item as the function argument. This removeFromCart function changes the state in FilteredList by removing the clicked cart item (based on its unique id) from the cart list in the state of FilteredList.

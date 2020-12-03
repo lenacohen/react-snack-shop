@@ -13,7 +13,9 @@ const productList = [
   { name: "Candy", size: "Small", taste: "Sweet", price: 5, image: "https://www.gbjournal.org/wp-content/uploads/m-and-ms.jpg"},
   { name: "Peach", size: "Medium", taste: "Natural", price: 2, image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Kader-Peach-Tree-350-THUMB_grande.jpg?v=1549683242"},
   { name: "Watermelon", size: "Large", taste: "Natural", price: 7, image: "https://aka.weightwatchers.ca/images/4105/dynamic/GCMSImages/mf_Watermelon_2324149_n_lg.jpg"},
-  { name: "Berries", size: "Small", taste: "Natural", price: 6, image: "https://images.agoramedia.com/everydayhealth/gcms/amazing-health-benefits-of-berries-08-pg-full.jpg"}
+  { name: "Apple", size: "Small", taste: "Natural", price: 1, image: "https://images.heb.com/is/image/HEBGrocery/prd-email/apple-slices-with-peanut-butter-snack-recipe.jpg"},
+  { name: "Burrito", size: "Large", taste: "Salty", price: 8, image: "http://del.h-cdn.co/assets/cm/15/10/54f6d87bb74ae_-_easy-sausage-egg-breakfast-burrito-recipe-jd0114-rm4yhv-xl.jpg"},
+  { name: "Salad", size: "Medium", taste: "Natural", price: 6, image: "https://www.epicurus.com/food/recipes/wp-content/uploads/2011/10/salad-ala-russe.jpg"}
  ]
  
 {/* Render the title and pass the snack list into a FilteredList component, 
